@@ -5,7 +5,7 @@ const fs = require('fs');
 const _ = require('lodash');
 
 const urls = require('../sources.json');
-const existingUrls = require('../dist/generated/articles.json');
+const existingUrls = require('../docs/generated/articles.json');
 
 Promise.all(urls.map(async blog => {
   const content = await got.get({
