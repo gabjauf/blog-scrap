@@ -1,0 +1,8 @@
+[{
+  "name": "Todoist", "tags": [], "url": "https://blog.doist.com/", "selectors": {
+    "article": ".db-article-card",
+    "articleTitle": ".db-article-card__title",
+    "image": "",
+    "excerpt": ""
+  }
+}]

@@ -18,5 +18,10 @@
   "bugs": {
     "url": "https://github.com/gabjauf/blog-scrap/issues"
   },
-  "homepage": "https://github.com/gabjauf/blog-scrap#readme"
+  "homepage": "https://github.com/gabjauf/blog-scrap#readme",
+  "dependencies": {
+    "bluebird": "^3.7.2",
+    "cheerio": "^1.0.0-rc.5",
+    "got": "^11.8.1"
+  }
 }
