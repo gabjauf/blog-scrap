@@ -4,7 +4,7 @@
       "article": ".db-article-card",
       "articleTitle": { "selector": ".db-article-card__cover-action", "attribute":"title" },
       "articleLink": { "selector": ".db-article-card__cover-action", "attribute":"href" },
-      "image": "",
+      "image": { "selector": ".db-article-card__cover-media", "attribute": "src"},
       "excerpt": ""
     }
   },
@@ -13,7 +13,7 @@
       "article": ".t-inside",
       "articleTitle": { "selector": "div.t-entry-text > div > div > h3 > a" },
       "articleLink": { "selector": "div.t-entry-text > div > div > h3 > a", "attribute":"href" },
-      "image": "",
+      "image": { "selector": "img.jetpack-lazy-image", "attribute": "src"},
       "excerpt": ""
     }
   }

@@ -7,6 +7,17 @@ const _ = require('lodash');
 const urls = require('../sources.json');
 const existingUrls = require('../docs/generated/articles.json');
 
+_.mixin({
+  'mergeByKey' : function(arr1, arr2, key) {
+    const criteria = {};
+    criteria[key] = null;
+    return _.map(arr1, function(item) {
+      criteria[key] = item[key];
+      return _.merge(item, _.find(arr2, criteria));
+    });
+  }
+});
+
 Promise.all(urls.map(async blog => {
   const content = await got.get({
     url: blog.url,
@@ -28,6 +39,7 @@ Promise.all(urls.map(async blog => {
     const articleMetaData = {
       title: getMetadata(article$, blog.selectors.articleTitle),
       link: getMetadata(article$, blog.selectors.articleLink),
+      image: getMetadata(article$, blog.selectors.image),
       date: new Date()
     };
     return metaDatas.push(articleMetaData);
@@ -38,9 +50,9 @@ Promise.all(urls.map(async blog => {
 .then(metadatas => metadatas.filter(el => el.link))
 .then(metadatas => mergeArticles(existingUrls, metadatas))
 .then((metaDatas) => {
-  fs.writeFileSync(`${__dirname}/../dist/generated/articles.json`, JSON.stringify(metaDatas));
+  fs.writeFileSync(`${__dirname}/../docs/generated/articles.json`, JSON.stringify(metaDatas));
 });
 
 function mergeArticles(source, fetched) {
-  return _.uniqBy(source.concat(fetched), 'link');
+  return _.mergeByKey(fetched, source, 'link');
 }
