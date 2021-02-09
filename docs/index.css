@@ -1,0 +1,24 @@
+.card {
+  background: #fff;
+  position: relative;
+  display: block;
+  border-radius: 15px;
+  border: solid 1px #ddd;
+  overflow: hidden;
+}
+
+h1 {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+h2 {
+  font-size: 1.2rem;
+  font-weight: 500;
+  padding: 1em;
+}
+
+img {
+  width: 100%;
+  max-height: 10em;
+}

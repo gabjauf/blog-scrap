@@ -49,6 +49,7 @@ Promise.all(urls.map(async blog => {
 .then(metadatas => _.flatten(metadatas))
 .then(metadatas => metadatas.filter(el => el.link))
 .then(metadatas => mergeArticles(existingUrls, metadatas))
+.then(metadatas => metadatas.sort((a, b) => a.date - b.date))
 .then((metaDatas) => {
   fs.writeFileSync(`${__dirname}/../docs/generated/articles.json`, JSON.stringify(metaDatas));
 });

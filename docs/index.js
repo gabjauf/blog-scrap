@@ -1,10 +1,9 @@
 $.getJSON('./generated/articles.json').then((articles) => {
-  console.log(articles);
   articles.forEach(article => {
-    $('body').append(`
-      <a href="${article.link}">
-        <h2>${article.title}</h2>
+    $('#content').append(`
+      <a href="${article.link}" class="card">
         <img src="${article.image}">
+        <h2>${article.title}</h2>
       </a>`
     );
   });
